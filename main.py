@@ -1,21 +1,23 @@
 # importing required modules
-import PyPDF2, copy
+import PyPDF2 # https://pypi.org/project/PyPDF2/
 
-def ifel(condition, trueVal, falseVal):
-    if condition:
-        return trueVal
-    else:
-        return falseVal
+##############################################
+# EDIT THESE vvv
 
 def getPath(s):
-    pdf_dir = "C:/Users/Richard Liu/Downloads/pdf-hustle/"
-    pdf_name = "hustle_{}_mu_alpha_theta_national_2016.pdf".format(s)
+    pdf_dir = "C:/Users/Richard Liu/Downloads/"
+    pdf_name = "hustle_{}_mu_alpha_theta_national_2016.pdf".format(s) # What file you want to fix
+    pdf_name = "chicken.pdf"
     return(pdf_dir + pdf_name)
 
 def getNewPath(s):
-    pdf_dir = "C:/Users/Richard Liu/Downloads/pdf-hustle/"
-    pdf_name = "hustle_{}_nats_2016-FIXED.pdf".format(s)
+    pdf_dir = "C:/Users/Richard Liu/Downloads/"
+    pdf_name = "hustle_{}_nats_2016-FIXED.pdf".format(s) # What you want your fixed file to be called
+    pdf_name = "new-chicken.pdf"
     return(pdf_dir + pdf_name)
+
+# EDIT THESE ^^^
+##############################################
 
 def fourth(orig_path, new_path):
 
@@ -34,7 +36,7 @@ def fourth(orig_path, new_path):
                 pdfWriter.addPage(basePage)
             basePage = pageObj.createBlankPage(pdf=pdfReader)
         
-        coords = [
+        coords = [ # May need to adjust for different files.
             [-300, 380],
             [300, 380],
             [-300, -380],
@@ -53,6 +55,9 @@ def fourth(orig_path, new_path):
     pdfFileObj.close()
     newFile.close()
 
+##############################################
+# EDIT THESE vvv
+
 subjects = [
     "algebra",
     "calculus",
@@ -61,5 +66,10 @@ subjects = [
     "probability_&_statistics"
 ]
 
-for i in range(5):
-    fourth(getPath(subjects[i]), getNewPath(subjects[i]))
+if __name__ == '__main__':
+    for i in range(5):
+        fourth(getPath(subjects[i]), getNewPath(subjects[i]))
+        print("done")
+
+# EDIT THESE ^^^
+##############################################
